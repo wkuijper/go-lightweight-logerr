@@ -9,13 +9,17 @@ type LogSink interface {
 }
 
 func F(format string, args ...any) {
-	// DISABLED
+	fmt.Fprintf(os.Stdout, "ERROR: ")
+	fmt.Fprintf(os.Stdout, format, args...)
+	fmt.Fprintln(os.Stdout, "")
 }
 
 func FF(out io.Writer, format string, args ...any) {
-	// DISABLED
+	fmt.Fprintf(out, "ERROR: ")
+	fmt.Fprintf(out, format, args...)
+	fmt.Fprintln(out, "")
 }
 
 func SF(sink LogSink, format string, args ...any) {
-	// DISABLED
+	sink.Log("ERROR", format, args)
 }
