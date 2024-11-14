@@ -1,7 +1,9 @@
 package logerr
 
 import (
+	"fmt"
 	"io"
+	"os"
 )
 
 type LogSink interface {
